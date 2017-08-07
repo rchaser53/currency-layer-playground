@@ -1,21 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>
-      window.onload = () => {
-        document.querySelector('#sendRequest').addEventListener('click', (event) => {
-          fetch('http://localhost:3000/', {
-            mode: 'cors'
-          })
-          .then((ret) => {
-              return ret.json()
-          })
-          .then((ret) => {
-            console.log(ret)
-          })
-        })
-      }
-    </script>
+    <script src="./src/script1.js"></script>
   </head>
   <body>
     <button id="sendRequest">sendRequest</button>
