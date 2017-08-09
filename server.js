@@ -1,6 +1,7 @@
 const http = require('http')
 const path = require('path')
 
+const cron = require('node-cron');
 const fetch = require('node-fetch');
 const express = require('express')
 const app = express()
@@ -29,5 +30,9 @@ app.get('/', (req, res) => {
 
 http.createServer(app)
     .listen(3000, () => {
-        console.log('Node app is running on port', 3000)
+      console.log('Node app is running on port', 3000)
+
+      new cron.schedule('* * * * * *', function() {
+        console.log('You will see this message every second');
+      }, null, true, 'America/Los_Angeles');
     })
