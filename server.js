@@ -9,6 +9,7 @@ const app = express()
 const apiKey = 'nya-n'
 
 // app.static(path.resolve(__dirname))
+const host = 'your host'
 
 app.use('/src', express.static('src'));
 
@@ -29,7 +30,10 @@ app.get('/', (req, res) => {
 })
 
 http.createServer(app)
-    .listen(3000, () => {
+    .listen({
+      host,
+      port: 3000
+    }, () => {
       console.log('Node app is running on port', 3000)
 
       new cron.schedule('* * * * * *', function() {
